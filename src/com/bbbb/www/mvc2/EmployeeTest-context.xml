@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+  <bean id="jdbcUtil" class="com.bbbb.www.mvc2.JdbcUtil" init-method="init">
+  <!-- collaborators and configuration for this bean go here -->
+  </bean>
+  <bean id="employeeDao" class="com.bbbb.www.mvc2.EmployeeDAOImpl">
+  	<property name="jdbcUtil" ref="jdbcUtil"></property>
+  </bean>
+  <bean id="employeeService" class="com.bbbb.www.mvc2.EmployeeServiceImpl">
+  	<property name="dao" ref="employeeDao"></property>
+  </bean>
+  <bean id="employee" class="com.bbbb.www.mvc2.Employee"></bean>
+  <bean id="employeeAction" class="com.bbbb.www.mvc2.EmployeeAction">
+  	<property name="service" ref="employeeService"></property>
+  	<property name="employee" ref="employee"></property>
+  </bean>
+  <!-- <bean id="name" class="com.bbbb.www.name.Name"></bean> -->
+  <!-- more bean definitions go here -->
+</beans> 

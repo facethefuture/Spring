@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop"
+
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+<aop:config>
+	<aop:aspect ref="audienceImpl2">
+		<aop:pointcut expression="execution(* com.bbbb.www2.concert.PerformanceImpl2.perform())" id="perform"/>
+	</aop:aspect>
+	<aop:before pointcut-ref="perform" method=perform>
+	</aop:before>
+</aop:config>
+<aop:aspectj-autoproxy></aop>
+<bean class="com.bbbb.www2.audience.AudienceImpl2" id="audienceImple2"></bean>
+<bean class="com.bbbb.www2.concert.PerformanceImpl2" id="performanceImpl2"></bean>
+</beans> 
